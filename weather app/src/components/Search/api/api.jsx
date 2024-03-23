@@ -8,4 +8,5 @@ export const GEO_options = {
 
 export const GEO_url = "https://wft-geo-db.p.rapidapi.com/v1/geo";
 
+export const WEATHER_API_KEY="6a23d05a4e588100285850b50f4fbb7f";
 

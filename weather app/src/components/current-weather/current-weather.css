@@ -37,3 +37,16 @@
     font-size: 70px;
     font-weight:700
 }
+.details{
+    display:flex;
+    flex-direction: column;
+}
+.parameter-row{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 300;
+    padding:0px 50px;
+}
+

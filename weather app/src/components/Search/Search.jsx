@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_url, GEO_options } from "./api/api";
 
-const Search = ({ onSearchChange }) => {
+const Search = ({onSearchChange}) => {
   const [search, setSearch] = useState(null);
 
   const handleOnChange = (searchData) => {
@@ -10,32 +10,36 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
 
-  const loadOptions = async (inputValue) => {
-    
-    try {
-      const response = await fetch(`${GEO_url}/cities?namePrefix=${inputValue}`,GEO_options);
-      const data = await response.json();
-      console.log(data); 
-    }
-    catch(err) {
-      console.error("Error Fetching Data",err);
-    }
-    
-    // fetch(`${GEO_url}/cities?namePrefix=${inputValue}`, GEO_options)
-    //   .then((response) => {
-    //     response.json();
-    //   })
-    //   .then((response) => {
+  const loadOptions = (inputValue) => {
+    // check why it is not working this way
+    // try {
+    //   const response = await fetch(`${GEO_url}/cities?namePrefix=${inputValue}`,GEO_options);
+    //   const responseData=await response.json();
+    //   const data = await responseData.map.data((city)=>{
     //     return {
-    //       options: response.data.map((city) => {
-    //         return {
-    //           value: `${city.latitude} ${city.longitude}`,
-    //           label: `${city.name},${city.countryCode}`,
-    //         };
-    //       }),
-    //     };
+    //       value: `${city.latitude} ${city.longitude}`,
+    //       label: `${city.name},${city.countryCode}`,
+    //       };
     //   })
-    //   .catch((err) => console.log(err));
+    //   console.log(data);
+    // }
+    // catch(err) {
+    //   console.error("Error Fetching Data",err);
+    // }
+
+    return fetch(`${GEO_url}/cities?namePrefix=${inputValue}`, GEO_options)
+      .then((response) => response.json())
+      .then((response) => {
+        return {
+          options: response.data.map((city) => {
+            return {
+              value: `${city.latitude} ${city.longitude}`,
+              label: `${city.name}, ${city.countryCode}`,
+            };
+          }),
+        };
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
