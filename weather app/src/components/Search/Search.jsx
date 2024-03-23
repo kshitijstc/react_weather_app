@@ -11,21 +11,31 @@ const Search = ({ onSearchChange }) => {
   };
 
   const loadOptions = async (inputValue) => {
-    return fetch(`${GEO_url}/cities?namePrefix=${inputValue}`, GEO_options)
-      .then((response) => {
-        response.json();
-      })
-      .then((response) => {
-        return {
-          options: response.data.map((city) => {
-            return {
-              value: `${city.latitude} ${city.longitude}`,
-              label: `${city.name},${city.countryCode}`,
-            };
-          }),
-        };
-      })
-      .catch((err) => console.log(err));
+    
+    try {
+      const response = await fetch(`${GEO_url}/cities?namePrefix=${inputValue}`,GEO_options);
+      const data = await response.json();
+      console.log(data); 
+    }
+    catch(err) {
+      console.error("Error Fetching Data",err);
+    }
+    
+    // fetch(`${GEO_url}/cities?namePrefix=${inputValue}`, GEO_options)
+    //   .then((response) => {
+    //     response.json();
+    //   })
+    //   .then((response) => {
+    //     return {
+    //       options: response.data.map((city) => {
+    //         return {
+    //           value: `${city.latitude} ${city.longitude}`,
+    //           label: `${city.name},${city.countryCode}`,
+    //         };
+    //       }),
+    //     };
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (
