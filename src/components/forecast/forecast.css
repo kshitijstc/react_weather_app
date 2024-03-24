@@ -1,0 +1,46 @@
+.title {
+    font-weight: 600;
+    font-size: 40px;
+}
+
+.daily-item {
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    margin: 5px;
+    cursor: pointer;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-weight: 450;
+
+}
+
+.small-icon {
+    width: 45px;
+}
+
+.day {
+    flex: 1 1;
+}
+
+.description {
+    flex: 1 1;
+}
+
+.min-max {
+    flex: 1 1;
+}
+
+.panel {
+    display: grid;
+    flex-direction: column;
+    grid-row-gap: 0;
+    grid-column-gap: 15px;
+    column-gap: 15px;
+    flex: 1 1;
+    grid-template-columns: auto;
+    padding: 5px 30px;
+}
