@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { GEO_url, GEO_options } from "./api/api";
 
@@ -10,7 +10,7 @@ const Search = ({ onSearchChange }) => {
     onSearchChange(searchData);
   };
 
-  const loadOptions = (inputValue) => {
+  const loadOptions = async (inputValue) => {
     // check why it is not working this way
     // try {
     //   const response = await fetch(`${GEO_url}/cities?namePrefix=${inputValue}`,GEO_options);
