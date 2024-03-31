@@ -17,7 +17,7 @@ function App() {
     const ForcastFetch = fetch(
       `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`
     );
-
+    
     Promise.all([currentWeatherFetch, ForcastFetch])
       .then(async (response) => {
         const weatherResponse = await response[0].json();
