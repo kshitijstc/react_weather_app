@@ -9,6 +9,7 @@ import {
 import "./forecast.css";
 
 const Forecast = ({ data }) => {
+  
   const WEEK_DAYS = [
     "Monday",
     "Tuesdasy",
