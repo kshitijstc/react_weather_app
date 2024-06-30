@@ -12,7 +12,7 @@ const Forecast = ({ data }) => {
   
   const WEEK_DAYS = [
     "Monday",
-    "Tuesdasy",
+    "Tuesday",
     "Wednesday",
     "Thrusday",
     "Friday",
